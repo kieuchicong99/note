@@ -1,0 +1,33 @@
+<div class = 'row col-12' style="max-width: 300px">
+<div class="col-6">
+  <div class="form-group">
+    <label for="input_form"></label>
+    <textarea class="form-control" id="input_form" rows="3"></textarea>
+  </div>
+</div>
+<div class="col-6">
+    <div class="container">
+        <h2>List</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Key word</th>
+              <th>Contain</th>
+              <th>Time create</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of data">
+              <td>{{item.status}}</td>
+              <td>{{item.key_word}}</td>
+              <td>{{item.contain}}</td>
+              <td>{{item.time}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+</div>
+</div>
