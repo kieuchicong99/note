@@ -1,6 +1,6 @@
 export interface Note{
   status?:boolean,
   key_word?:string,
-  contain?:string,
+  content?:string,
   time?:string
 }

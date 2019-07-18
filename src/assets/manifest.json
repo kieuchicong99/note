@@ -1,17 +1,16 @@
 {
   "manifest_version": 2,
-  "name": "ng2 Extension",
-  "description": "Note",
-  "version": "1.0",
-  "browser_action": {
-  "default_icon": "favicon.ico",
-  "default_popup": "index.html"
+  "name": "Note",
+  "version": "1.0.0",
+  "permissions": [ "tabs", "activeTab", "storage"],
+  "background": {
+    "page": "index.html#/event-page",
+    "persistent": false
   },
-  "permissions": [],
-  "content_security_policy": "script-src ‘self’ ‘unsafe-eval’; object-src ‘self’",
-  "web_accessible_resources": [
-  "assets/css/*",
-  "assets/js/*",
-  "assets/fonts/*"
-  ]
- }
+  "browser_action": {
+    "default_title": "Open Popup!",
+    "default_popup": "index.html#/popup"
+  },
+  "icon": "favicon.ico",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

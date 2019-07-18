@@ -1,33 +1,107 @@
-<div class = 'row col-12' style="max-width: 300px">
-<div class="col-6">
-  <div class="form-group">
-    <label for="input_form"></label>
-    <textarea class="form-control" id="input_form" rows="3"></textarea>
+<div  class='popup row col-12' >
+  <div class="col-12" style="background-color:#007bff; max-height: 35px;">
+    <div class="row">
+      <div class="col-4 ">
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addModal" title="Create New">
+          New
+        </button>
+      </div>
+      <div class="col-4 ">
+        <button type="button" class="btn btn-sm btn-primary">Save</button>
+      </div>
+      <div class="col-4 ">
+        <button type="button" class="btn btn-sm btn-primary">Delete</button>
+      </div>
+    </div>
   </div>
-</div>
-<div class="col-6">
-    <div class="container">
-        <h2>List</h2>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Status</th>
-              <th>Key word</th>
-              <th>Contain</th>
-              <th>Time create</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of data">
-              <td>{{item.status}}</td>
-              <td>{{item.key_word}}</td>
-              <td>{{item.contain}}</td>
-              <td>{{item.time}}</td>
-            </tr>
 
-          </tbody>
-        </table>
+  <div style="max-width : 300px;min-height: 550px; max-height:550px;overflow-y: scroll;overflow-x:hidden" class="pad_cus col-12 ">
+    <div>
+      <h5>History note</h5>
+      <table style="background-color: white" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Star</th>
+            <th>Key word</th>
+            <th>Content</th>
+            <th>Time create</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td style="width:5%">{{item.status}}</td>
+            <td>{{item.key_word}}</td>
+            <td style="width:30%">{{item.content}}</td>
+            <td>{{item.time}}</td>
+            <td>
+              <div class="row">
+                <div class="col-6">
+                  <button (click)= delete() class="btn_table btn btn-sm " title="Delete">
+                    <img src="https://img.icons8.com/ios-glyphs/20/FF0000/close-window.png">
+                  </button>
+                </div>
+
+                <div class="col-6">
+                  <button class="btn_table btn btn-sm " data-toggle="modal" data-target="#fullEditModal"
+                    (click)=edit(item,i) title="Edit">
+                    <img src="https://img.icons8.com/color/20/000000/edit-property.png">
+                  </button>
+                </div>
+              </div>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+      <!-- Full Edit Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header modal-header-custom">
+              <h5 class="modal-title" id="exampleModalLabel"></h5>
+              <button type="button" class="close btn-sm" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- <app-business-full-edit [business]="business"></app-business-full-edit> -->
+            </div>
+            <div class="modal-footer modal-footer-custom">
+              <button type="button" class="btn btn-success btn-sm" (click)=apply()></button>
+
+            </div>
+          </div>
+        </div>
       </div>
 
-</div>
+      <!-- /////////////////////////////// -->
+
+      <!-- Add Modal -->
+      <div style ="max-width:300px"  class="modal fade " id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div style="max-width :350px;" class="modal-content ">
+            <div class="modal-header modal-header-custom">
+              <h5 class="modal-title" id="exampleModalLabel"></h5>
+              <button type="button" class="close btn-sm" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <app-business-full-edit [flag]="flag_add" (addNew)="addNote($event)" [note]="newNote">
+              </app-business-full-edit>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+  </div>
 </div>

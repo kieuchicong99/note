@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+.pad_cus{
+  padding: 0px 2px 0px 2px;
+}
+
+.btn_table{
+  padding: 0px 0px 0px 4px;
+}
+
+.list-group-item-custom {
+  position: relative;
+  display: block;
+  padding: .3rem .5rem;
+  margin-bottom: -1px;
+  background-color: #fff;
+}
+.modal-footer-custom,.modal-header-custom{
+  padding: 0.4rem;
+}
+
+.table td, .table th {
+  padding: .2rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.col-12-cus{
+  padding-right: 0;
+  padding-left: 0;
+
+}
+
+.popup {
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 550px;
+  padding-right: 0;
+  margin-right: 0;
+  padding-left: 0;
+  margin-left: 0;
+}

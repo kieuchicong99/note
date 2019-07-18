@@ -1,0 +1,47 @@
+<div style="max-width:300px">
+  <ul class="list-group list-group-flush">
+    <div class="row">
+      <div class="col-12-cus col-sm-12   row" *ngIf="note===undefined; else edit;">
+
+      </div>
+      <ng-template #edit>
+        <div class="col-12-cus col-sm-12 ">
+          <div class="col-12-cus col-12 height-modal">
+            <div class="col-12-cus col-12 ">
+              <li class="list-group-item-custom">status<input class="form-control" [(ngModel)]="note.status" id="ex1"
+                  type="text" placeholder={{note.status}}>
+              </li>
+            </div>
+            <div class="col-12-cus col-12">
+              <li class="list-group-item-custom">key_word <input class="form-control" [(ngModel)]="note.key_word" id="ex2"
+                  type="text" placeholder={{note.key_word}}>
+              </li>
+            </div>
+            <div class="col-12-cus col-12">
+              <li class="list-group-item-custom">content<input class="form-control" [(ngModel)]="note.content" id="ex3"
+                  type="text" placeholder={{note.content}}>
+              </li>
+            </div>
+            <div class="col-12-cus col-12">
+              <li class="list-group-item-custom">time<input class="form-control" [(ngModel)]="note.time" id="ex4"
+                  type="text" placeholder={{note.time}}>
+              </li>
+            </div>
+
+          </div>
+
+          <div class="col-12-cus col-12" *ngIf="flag==flag_add; else non">
+            <li class="list-group-item-custom">
+              <button type="button" class="btn btn-primary btn-sm" (click)="add()">add</button>
+            </li>
+          </div>
+          <ng-template #non>
+            <div></div>
+          </ng-template>
+
+        </div>
+      </ng-template>
+
+    </div>
+  </ul>
+</div>
